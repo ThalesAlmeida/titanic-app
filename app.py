@@ -58,8 +58,6 @@ if pagina == "Início":
             st.info("🚢 **Fonte 2**\nBanco de dados SQLite")
     with col3:
         st.info("🚢 **Fonte 3**\nVisualizações interativas")
-        st.markdown("---")
-        st.markdown("Use o menu lateral para navegar.")
 elif pagina == "Dados do CSV":
     st.title("🚢 Dados do CSV")
     df_csv = carregar_csv()
