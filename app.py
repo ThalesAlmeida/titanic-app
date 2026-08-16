@@ -44,8 +44,11 @@ pagina = st.sidebar.radio(
 if pagina == "Início":
     st.title("🚢 Titanic Dashboard")
     st.markdown("""
-    Bem-vindo ao **Titanic Dashboard** — um exemplo prático
-    de como construir uma aplicação de dados com Streamlit.
+    Bem-vindo ao **Titanic Dashboard** — uma aplicação interativa para explorar os dados do famoso naufrágio do Titanic.
+    Aqui você pode:
+- Visualizar os dados do Titanic em formato CSV.
+- Consultar os dados armazenados em um banco de dados SQLite.
+- Criar gráficos interativos para analisar a sobrevivência dos passageiros com base em diferentes atributos.s
     """)
     st.markdown("---")
     col1, col2, col3 = st.columns(3)
@@ -78,14 +81,6 @@ elif pagina == "Dados do CSV":
     st.caption(f"{len(df_filtrado)} registros exibidos")
 elif pagina == "Dados do Banco":
     st.title("🚢 Dados do Banco de Dados")
-    st.code(
-        """
-    # Conexão com SQLite (mesma lógica para outros bancos)
-    conn = sqlite3.connect('database/titanic.db')
-    df = pd.read_sql('SELECT * FROM passageiros', conn)
-    """,
-        language="python",
-    )
     df_banco = carregar_banco()
     st.subheader("Estatísticas descritivas")
     st.dataframe(df_banco.describe().round(2), use_container_width=True)
